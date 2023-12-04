@@ -72,7 +72,7 @@ const Nav = () => {
                     </li>
                     <li className='d-shop-cart'>
                       <Link to='/cart'>
-                        <i className='fa-solid fa-cart-shopping'></i>
+                        <i className='far fa-shopping-cart'></i>
                         <span className='cart-count'>1</span>
                       </Link>
 
