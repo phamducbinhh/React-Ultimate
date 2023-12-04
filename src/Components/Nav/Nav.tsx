@@ -65,72 +65,15 @@ const Nav = () => {
                       </a>
                     </li>
                     <li className='login-btn'>
-                      {/* <Link to={!isEmptyUser ? `/` : '/login'}>
-                        <i className='far fa-user'></i> <span className={!isEmptyUser ? `cart-count` : ''}></span>{' '}
+                      <Link to={'/login'}>
+                        <i className='far fa-user'></i>
                       </Link>
-                      {!isEmptyUser > 0 && (
-                        <ul className='minicart'>
-                          <h2>Welcome, {currentUser.fullName}</h2>
-                          <li className='total-price log-out'>
-                            <span onClick={() => logOut()} className='btn-app orange-btn'>
-                              Log out
-                            </span>
-                          </li>
-                        </ul>
-                      )} */}
                     </li>
                     <li className='d-shop-cart'>
                       <Link to='/cart'>
-                        <i className='far fa-shopping-cart'></i>
+                        <i className='fa-solid fa-cart-shopping'></i>
                         <span className='cart-count'>1</span>
                       </Link>
-
-                      {/* <ul className='minicart'>
-                        {totalCart > 0 ? (
-                          cart.map((item, index) => {
-                            return (
-                              <li key={index}>
-                                <div className='cart-img'>
-                                  <Link to={`/details/${item.id - 1}`}>
-                                    <img src={item.product.image} alt='Cart' />
-                                  </Link>
-                                </div>
-                                <div className='cart-content'>
-                                  <h3>
-                                    <Link to={`/details/${item.id - 1}`}>{item.product.title}</Link>
-                                  </h3>
-                                  <div className='cart-price'>
-                                    <span className='new'>
-                                      ${item.product.sale ? item.product.salePrice : item.product.price} *{' '}
-                                      {item.quantity}
-                                    </span>{' '}
-                                    = <span className='new ml-1 '>${item.totalPrice}</span>
-                                  </div>
-                                </div>
-                                <div className='del-icon'>
-                                  <span>
-                                    <i className='far fa-trash-alt'></i>
-                                  </span>
-                                </div>
-                              </li>
-                            )
-                          })
-                        ) : (
-                          <h2>Product Not Found</h2>
-                        )}
-                        <li>
-                          <div className='total-price'>
-                            <span>Total:</span>
-                            <span>${totalPrice.toFixed(2)}</span>
-                          </div>
-                        </li>
-                        <li className='go-to-cart'>
-                          <ButtonApp value='shopping cart' direction='/cart' classColor='orange-btn'></ButtonApp>
-                        </li>
-                        <li className='go-to-cart'>
-                          <ButtonApp value='check out' direction='/checkout' classColor='green-btn'></ButtonApp>
-                        </li>
-                      </ul> */}
                     </li>
                   </ul>
                 </Box>
@@ -145,30 +88,7 @@ const Nav = () => {
                 }}
                 item
                 md={10}
-              >
-                <Box className='mobile-btn header-right'>
-                  <ul>
-                    {/* <li className='login-btn'>
-                      <Link to={!isEmptyUser ? `/` : '/login'}>
-                        <i className='far fa-user'></i> <span className={!isEmptyUser ? `cart-count` : ''}></span>{' '}
-                      </Link>
-                      {!isEmptyUser > 0 && (
-                        <ul className='minicart'>
-                          <h2>Welcome, {currentUser.fullName}</h2>
-                          <li className='total-price log-out'>
-                            <span onClick={() => logOut()} className='btn-app orange-btn'>
-                              Log out
-                            </span>
-                          </li>
-                        </ul>
-                      )}
-                    </li> */}
-                    <li>
-                      <i className='fas fa-bars hamburger-bars'></i>
-                    </li>
-                  </ul>
-                </Box>
-              </Grid>
+              ></Grid>
             </Grid>
           </Box>
         </Container>
