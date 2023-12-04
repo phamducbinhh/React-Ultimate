@@ -4,7 +4,9 @@ import ApiService from '~/Apis/api.public'
 export const fetchListProduct = createAsyncThunk('product/fetchListProduct', async (): Promise<any> => {
   try {
     const response = await ApiService.getProducts()
-    return response
+    if (response) {
+      return response
+    }
   } catch (e: any) {
     console.error(e.message)
     throw e
