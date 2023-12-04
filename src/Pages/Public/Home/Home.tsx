@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Banner from '~/Components/Banner'
 import BrandNewItems from '~/Components/BrandNewItems'
 import HomeCarousel from '~/Components/HomeCarousel'
+import NewFeed from '~/Components/NewFeed'
 import Newsletter from '~/Components/Newsletter'
 import TopSellers from '~/Components/TopSellers/TopSellers'
 import UpComingProduct from '~/Components/UpComingProduct'
@@ -24,6 +25,7 @@ const Home = () => {
       <TopSellers />
       <BrandNewItems data={products} isLoading={isLoading}></BrandNewItems>
       <UpComingProduct />
+      <NewFeed />
       <Newsletter />
     </>
   )

@@ -5,6 +5,10 @@ class ApiService {
     const url = 'Products.json'
     return ApiClientService.get(url)
   }
+  public getBlogs(): Promise<any> {
+    const url = 'Posts.json'
+    return ApiClientService.get(url)
+  }
 }
 
 export default new ApiService()
