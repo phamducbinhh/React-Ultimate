@@ -173,25 +173,6 @@ const Nav = () => {
           </Box>
         </Container>
       </nav>
-      {/* {openSearch && (
-        <div className='search-wrap'>
-          <div className='search-inner'>
-            <i onClick={() => closeSearchForm()} className='fa fa-times search-close'></i>
-            <div className='search-cell'>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='search-field-holder'>
-                  <input placeholder='Search Entire Store.....' type='text' {...register('searchData')} />
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
-      <MobileNav
-        toggleMobileNav={openNavMobile}
-        handleCloseNavMobile={handleCloseNavMobile}
-        openSearchForm={openSearchForm}
-      ></MobileNav> */}
     </>
   )
 }
