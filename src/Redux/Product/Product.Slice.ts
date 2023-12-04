@@ -15,6 +15,7 @@ export const productSlice = createSlice({
   name: 'product',
   initialState: {
     listProduct: [],
+    isLoading: false,
     sortData: 'all'
   },
   reducers: {
