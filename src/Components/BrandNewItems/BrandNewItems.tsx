@@ -50,6 +50,11 @@ const BrandNewItems = ({ data, isLoading }: any) => {
     ]
   }
 
+  const toggleActive = (index: number, e: any) => {
+    e.preventDefault()
+    setActiveLink(index)
+  }
+
   const navLinks = [
     {
       id: 1,
@@ -79,12 +84,17 @@ const BrandNewItems = ({ data, isLoading }: any) => {
 
   const navLink = navLinks.map((item, index) => {
     return (
-      <li key={index} className={activeLink === index ? `active nav-link` : `nav-link`}>
+      <li
+        key={index}
+        onClick={(e) => {
+          toggleActive(index, e)
+        }}
+        className={activeLink === index ? `active nav-link` : `nav-link`}
+      >
         <a href='/'>{item.name}</a>
       </li>
     )
   })
-
   return (
     <div className='bestSeller'>
       <Container sx={{ maxWidth: { md: 1755 } }}>
