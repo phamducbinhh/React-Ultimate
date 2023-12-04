@@ -7,7 +7,7 @@ interface IConfig {
 
 class ApiClient {
   private host: string
-  private prefix: string
+  private prefix: string | null
   private headers: {
     Accept: string
     Authorization?: string
@@ -15,7 +15,7 @@ class ApiClient {
 
   constructor(host: string, prefix: string) {
     this.host = host
-    this.prefix = prefix
+    this.prefix = prefix || ''
     this.headers = {
       Accept: 'application/json'
     }
@@ -82,4 +82,6 @@ class ApiClient {
   }
 }
 
-export default ApiClient
+const ApiClientService = new ApiClient(process.env.REACT_APP_BASE_URL as string, '')
+
+export { ApiClientService }
