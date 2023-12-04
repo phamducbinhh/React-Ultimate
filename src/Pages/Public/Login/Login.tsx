@@ -2,6 +2,8 @@ import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import FeatureTitle from '~/Components/FeatureTitle'
+import './Login.css'
+import ButtonApp from '~/Components/ButtonApp'
 
 const Login = () => {
   return (
@@ -33,7 +35,7 @@ const Login = () => {
                     <div className='or-divide'>
                       <span>or</span>
                     </div>
-                    {/* <ButtonApp classColor='orange-btn' value='register now' direction='/register'></ButtonApp> */}
+                    <ButtonApp classColor='orange-btn' value='register now' direction='/register'></ButtonApp>
                   </form>
                 </Box>
               </Grid>
