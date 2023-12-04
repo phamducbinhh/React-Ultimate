@@ -11,22 +11,38 @@ export const fetchListProduct = createAsyncThunk('product/fetchListProduct', asy
   }
 })
 
+interface ProductState {
+  listProduct: any[]
+  isLoading: boolean
+  sortData: string
+}
+
+const initialState: ProductState = {
+  listProduct: [],
+  isLoading: false,
+  sortData: 'all'
+}
+
 export const productSlice = createSlice({
   name: 'product',
-  initialState: {
-    listProduct: [],
-    isLoading: false,
-    sortData: 'all'
-  },
+  initialState,
   reducers: {
     sortItem: (state, action) => {
       state.sortData = action.payload
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchListProduct.fulfilled, (state, action) => {
-      state.listProduct = action.payload
-    })
+    builder
+      .addCase(fetchListProduct.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(fetchListProduct.fulfilled, (state, action) => {
+        state.listProduct = action.payload
+        state.isLoading = false
+      })
+      .addCase(fetchListProduct.rejected, (state) => {
+        state.isLoading = false
+      })
   }
 })
 
