@@ -82,6 +82,6 @@ class ApiClient {
   }
 }
 
-const ApiClientService = new ApiClient(process.env.REACT_APP_BASE_URL as string, '')
+const ApiClientService = new ApiClient(import.meta.env.VITE_APP_BASE_URL as string, '')
 
 export { ApiClientService }
