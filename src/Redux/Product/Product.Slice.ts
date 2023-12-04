@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import ApiService from '~/Apis/api.public'
 
-export const FetchListProduct = createAsyncThunk('product/fetchListProduct', async (): Promise<any> => {
+export const fetchListProduct = createAsyncThunk('product/fetchListProduct', async (): Promise<any> => {
   try {
     const response = await ApiService.getProducts()
     return response
@@ -14,14 +14,21 @@ export const FetchListProduct = createAsyncThunk('product/fetchListProduct', asy
 export const productSlice = createSlice({
   name: 'product',
   initialState: {
-    listProduct: []
+    listProduct: [],
+    sortData: 'all'
   },
-  reducers: {},
+  reducers: {
+    sortItem: (state, action) => {
+      state.sortData = action.payload
+    }
+  },
   extraReducers: (builder) => {
-    builder.addCase(FetchListProduct.fulfilled, (state, action) => {
+    builder.addCase(fetchListProduct.fulfilled, (state, action) => {
       state.listProduct = action.payload
     })
   }
 })
+
+export const { sortItem } = productSlice.actions
 
 export default productSlice.reducer
