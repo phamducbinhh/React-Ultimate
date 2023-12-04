@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom'
 import path from './Utils/path'
 import { Home, Layout, Login, Register } from './Pages/Public'
 import './App.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const App = () => {
   return (
