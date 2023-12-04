@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid'
 import logo from './logo.png'
 import { NavLink, Link } from 'react-router-dom'
 import './Nav.css'
+import ButtonApp from '../ButtonApp'
 
 const Nav = () => {
   return (
@@ -74,6 +75,22 @@ const Nav = () => {
                         <i className='fa-solid fa-cart-shopping'></i>
                         <span className='cart-count'>1</span>
                       </Link>
+
+                      <ul className='minicart'>
+                        <h2>Product Not Found</h2>
+                        <li>
+                          <div className='total-price'>
+                            <span>Total:</span>
+                            <span>0</span>
+                          </div>
+                        </li>
+                        <li className='go-to-cart'>
+                          <ButtonApp value='shopping cart' direction='/cart' classColor='orange-btn'></ButtonApp>
+                        </li>
+                        <li className='go-to-cart'>
+                          <ButtonApp value='check out' direction='/checkout' classColor='green-btn'></ButtonApp>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </Box>
