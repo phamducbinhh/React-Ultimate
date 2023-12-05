@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import path from './Utils/path'
 import { Home, Layout, Login, Register, Shop } from './Pages/Public'
+import './Responsive.css'
 import './App.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
