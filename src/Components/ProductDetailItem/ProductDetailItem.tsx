@@ -121,7 +121,7 @@ const ProductDetailItem = ({ item, isLoading }: any) => {
                         </button>
                       </Box>
                       <Box className='product-wishlist'>
-                        <span className='active details-action-ico'>
+                        <span className='active details-action-icon'>
                           <i className='fas fa-heart' title='Wishlist'></i>
                         </span>
                       </Box>
