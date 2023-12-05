@@ -35,7 +35,7 @@ const Shop = () => {
     const filterProducts = () => {
       let result = [...items]
       // Search
-      if (search.trim() !== '') {
+      if (search.length > 0) {
         result = result.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
       }
       // Price
