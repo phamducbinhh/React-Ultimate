@@ -11,7 +11,7 @@ const Widget = () => {
   return (
     <Grid item md={4} xs={12}>
       <WidgetAboutMe />
-      {/* <WidgetRecentPost /> */}
+      <WidgetRecentPost />
       <WidgetCategory />
       <WidgetSocial />
       <WidgetFeed />

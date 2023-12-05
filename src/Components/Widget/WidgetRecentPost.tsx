@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { Box } from '@mui/material'
 import Skeleton from 'react-loading-skeleton'
-import ecomApi from '../../Api/ecomApi'
-import Box from '@mui/material/Box'
 import { Link } from 'react-router-dom'
+import { useAppSelector } from '~/Redux/Hooks'
 
-function WidgetRecentPost() {
-  const [totalBlogs, setTotalBlogs] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const getAllBlog = async () => {
-      const getAll = await ecomApi.getBlogs()
-      setTotalBlogs(getAll.data)
-      setIsLoading(false)
-    }
-    getAllBlog()
-  }, [])
+const WidgetRecentPost = () => {
+  const blogs = useAppSelector<any[]>((state) => state.blog.listBlog)
+  const isLoading = useAppSelector<any>((state) => state.blog.isLoading)
   return (
     <Box className='widget'>
       <Box className='widget-title-box'>
@@ -29,7 +19,7 @@ function WidgetRecentPost() {
               return <WidgetRecentPostSkeleton key={index} />
             })}
         {!isLoading &&
-          totalBlogs.slice(0, 2).map((blog, i) => {
+          blogs.slice(0, 2).map((blog, i) => {
             return (
               <li key={i}>
                 <Box className='widget-posts-image'>
