@@ -2,6 +2,7 @@ import { Box, Container, Grid } from '@mui/material'
 import { useEffect, useState } from 'react'
 import FeatureTitle from '~/Components/FeatureTitle'
 import ShopArea from '~/Components/ShopArea'
+import WidgetBranding from '~/Components/ShopWidget/WidgetBranding'
 import WidgetPrice from '~/Components/ShopWidget/WidgetPrice'
 import WidgetSearch from '~/Components/ShopWidget/WidgetSearch'
 import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
@@ -77,6 +78,7 @@ const Shop = () => {
               >
                 <Box className='shop-widget'>
                   <WidgetSearch />
+                  <WidgetBranding />
                   <WidgetPrice />
                 </Box>
               </Grid>
