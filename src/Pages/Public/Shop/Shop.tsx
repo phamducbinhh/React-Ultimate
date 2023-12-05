@@ -13,6 +13,7 @@ const Shop = () => {
   const [filteredItems, setFilteredItems] = useState<any[]>(items)
   const isLoading = useAppSelector<any>((state) => state.product.isLoading)
   const search = useAppSelector((state) => state.product.searchData)
+  const price = useAppSelector<number[]>((state) => state.product.priceData)
 
   const settings = {
     gridView: 6
@@ -24,14 +25,28 @@ const Shop = () => {
   }, [])
 
   useEffect(() => {
-    //Search Item
-    if (search.trim() === '') {
-      setFilteredItems(items)
-    } else {
-      const updatedItems = items.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
-      setFilteredItems(updatedItems)
+    // Filter Function
+    const filterProducts = () => {
+      let result = [...items]
+
+      // Search
+      if (search.trim() !== '') {
+        result = result.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
+      }
+
+      // Price
+      result = result.filter((item) => {
+        const getSale = item.sale ? item.salePrice : item.price
+        return price[0] <= getSale && getSale <= price[1]
+      })
+
+      // Update filteredItems
+      setFilteredItems(result)
     }
-  }, [search, items])
+
+    // Call Filter Function
+    filterProducts()
+  }, [search, price, items])
 
   return (
     <>
