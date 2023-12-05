@@ -13,9 +13,26 @@ export const fetchListProduct = createAsyncThunk('product/fetchListProduct', asy
   }
 })
 
+export const fetchListProductDetails = createAsyncThunk(
+  'Blog/fetchListProductDetails',
+  async (payload: any): Promise<any> => {
+    try {
+      const response = await ApiService.getOneProduct(payload.id)
+      if (response) {
+        return response
+      }
+    } catch (e: any) {
+      console.error(e.message)
+      throw e
+    }
+  }
+)
+
 interface ProductState {
   listProduct: any[]
+  listProductDetails: any[]
   isLoading: boolean
+  isLoadingDetails: boolean
   sortData: string
   searchData: string
   priceData: any[]
@@ -26,7 +43,9 @@ interface ProductState {
 
 const initialState: ProductState = {
   listProduct: [],
+  listProductDetails: [],
   isLoading: false,
+  isLoadingDetails: false,
   sortData: 'all',
   searchData: '',
   priceData: [0, 1000],
@@ -69,6 +88,17 @@ export const productSlice = createSlice({
       })
       .addCase(fetchListProduct.rejected, (state) => {
         state.isLoading = false
+      })
+
+      .addCase(fetchListProductDetails.pending, (state) => {
+        state.isLoadingDetails = true
+      })
+      .addCase(fetchListProductDetails.fulfilled, (state, action) => {
+        state.listProductDetails = action.payload
+        state.isLoadingDetails = false
+      })
+      .addCase(fetchListProductDetails.rejected, (state) => {
+        state.isLoadingDetails = false
       })
   }
 })
