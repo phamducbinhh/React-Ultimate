@@ -2,6 +2,7 @@ import './FeatureTitle.css'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
+import { Link } from 'react-router-dom'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FeatureTitle = ({ title, page }: any) => {
@@ -16,7 +17,7 @@ const FeatureTitle = ({ title, page }: any) => {
                   <h1>{title}</h1>
                   <ul className='breadcrumb-menu'>
                     <li>
-                      <a href='/'>home</a>
+                      <Link to={'/'}>Home</Link>
                     </li>
                     <li>
                       <span>{page}</span>
