@@ -23,13 +23,13 @@ const WidgetRecentPost = () => {
             return (
               <li key={i}>
                 <Box className='widget-posts-image'>
-                  <Link to={`/blog/${blog.id}`}>
+                  <Link to={`/blogs/${blog.id}`}>
                     <img src={blog.postThumb} alt='' />
                   </Link>
                 </Box>
                 <Box className='widget-posts-content'>
                   <h6 className='hover-title red-color'>
-                    <Link to={`/blog/${blog.id}`}>{blog.title ? blog.title.slice(0, 25) : <></>}</Link>
+                    <Link to={`/blogs/${blog.id}`}>{blog.title ? blog.title.slice(0, 25) : <></>}</Link>
                   </h6>
                   <div className='widget-posts-meta'> September 15, 2018 </div>
                 </Box>

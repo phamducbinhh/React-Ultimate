@@ -36,7 +36,7 @@ const NewFeed = () => {
                     <Grid key={index} item lg={4} xs={12}>
                       <Box className='new-feed-item'>
                         <Box className='item-image'>
-                          <Link to={`/blog/${index}`}>
+                          <Link to={`/blogs/${index}`}>
                             <img src={blog.newThumb} alt='thumb' />
                           </Link>
                         </Box>
@@ -58,7 +58,7 @@ const NewFeed = () => {
                           </span>
                         </Box>
                         <h2 className='hover-title red-color'>
-                          <Link to={`/blog/${index}`}>{blog.title}</Link>
+                          <Link to={`/blogs/${index}`}>{blog.title}</Link>
                         </h2>
                         <p>{blog.body}</p>
                       </Box>
