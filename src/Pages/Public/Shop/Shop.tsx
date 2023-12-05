@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import FeatureTitle from '~/Components/FeatureTitle'
 import ShopArea from '~/Components/ShopArea'
 import WidgetBranding from '~/Components/ShopWidget/WidgetBranding'
+import WidgetCategories from '~/Components/ShopWidget/WidgetCategories'
 import WidgetPrice from '~/Components/ShopWidget/WidgetPrice'
 import WidgetSearch from '~/Components/ShopWidget/WidgetSearch'
 import WidgetSize from '~/Components/ShopWidget/WidgetSize'
@@ -18,6 +19,7 @@ const Shop = () => {
   const price = useAppSelector<number[]>((state) => state.product.priceData)
   const brandingArr = useAppSelector<string[]>((state) => state.product.brandingData)
   const sizeArr = useAppSelector<string[]>((state) => state.product.sizeData)
+  const categoriesArr = useAppSelector<string[]>((state) => state.product.categoriesData)
 
   const settings = {
     gridView: 6
@@ -52,11 +54,14 @@ const Shop = () => {
       if (sizeArr.length > 0) {
         result = result.filter((item) => sizeArr.includes(item.details.size))
       }
+      if (categoriesArr.length > 0) {
+        result = result.filter((item) => categoriesArr.includes(item.category))
+      }
       // Update filteredItems
       setFilteredItems(result)
     }
     filterProducts()
-  }, [search, price, items, brandingArr, sizeArr])
+  }, [search, price, items, brandingArr, sizeArr, categoriesArr])
 
   return (
     <>
@@ -90,6 +95,7 @@ const Shop = () => {
                   <WidgetBranding />
                   <WidgetPrice />
                   <WidgetSize />
+                  <WidgetCategories />
                 </Box>
               </Grid>
             </Grid>
