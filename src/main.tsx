@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from './Redux/Store.ts'
 import { BrowserRouter } from 'react-router-dom'
 import { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
