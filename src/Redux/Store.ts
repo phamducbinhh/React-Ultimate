@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import productReducer from './Product/Product.Slice'
 import blogReducer from './Blogs/Blog.Slice'
+import modalReducer from './Modal/Modal.Slice'
 export const store = configureStore({
   reducer: {
     product: productReducer,
-    blog: blogReducer
+    blog: blogReducer,
+    modal: modalReducer
   }
 })
 

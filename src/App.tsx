@@ -5,8 +5,12 @@ import './Responsive.css'
 import './App.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import ModalView from './Components/ModalView'
+import { useAppSelector } from './Redux/Hooks'
 
 const App = () => {
+  const modalOpen = useAppSelector((state) => state.modal.isOpen)
+  const modalData = useAppSelector((state) => state.modal.modalData)
   return (
     <>
       <Routes>
@@ -21,6 +25,7 @@ const App = () => {
           <Route path={path.REGISTER} element={<Register />} />
         </Route>
       </Routes>
+      {modalOpen && <ModalView toggleModal={modalOpen} item={modalData}></ModalView>}
     </>
   )
 }

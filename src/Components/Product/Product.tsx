@@ -2,9 +2,21 @@ import './Product.css'
 import { Link } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Skeleton from 'react-loading-skeleton'
+import { getDataToModal, openModal } from '~/Redux/Modal/Modal.Slice'
+import { useAppDispatch } from '~/Redux/Hooks'
 
 const Product = (props: any) => {
-  const { image, price, sale, title, category, hoverImage, saleItem, newItem, id, desc, isLoading } = props
+  const { image, price, sale, title, category, hoverImage, saleItem, newItem, id, desc, isLoading, itemClick } = props
+  const dispatch = useAppDispatch()
+
+  const handleModalView = (item: any) => {
+    const html: any = document.querySelector('html')
+    const action = getDataToModal(item)
+    const actionOpenModal = openModal()
+    dispatch(action)
+    dispatch(actionOpenModal)
+    html.classList.add('prevent-scroll')
+  }
 
   return (
     <>
@@ -20,7 +32,7 @@ const Product = (props: any) => {
               <span title='Shopping Cart'>
                 <i className='fal fa-cart-plus'></i>
               </span>
-              <span title='Quick View'>
+              <span title='Quick View' onClick={() => handleModalView(itemClick)}>
                 <i className='fal fa-eye'></i>
               </span>
               <span className='active' title='Compare'>
