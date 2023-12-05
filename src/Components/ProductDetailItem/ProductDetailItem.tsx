@@ -8,6 +8,8 @@ const ProductDetailItem = ({ item, isLoading }: any) => {
   const [toggleImage, setToggleImage] = useState(0)
   const [count, setCount] = useState(0)
 
+  const sizeArr = ['L', 'M', 'X', 'XL', 'XXL']
+
   const getImage = (idx: number) => {
     setToggleImage(idx)
   }
@@ -67,11 +69,11 @@ const ProductDetailItem = ({ item, isLoading }: any) => {
                           <span>size</span>
                         </Box>
                         <ul className='shop-link'>
-                          {/* {sizeArr.map((link, i) => {
+                          {sizeArr.map((link, i) => {
                             if (Array.isArray(item.details.size)) {
                               return (
                                 <li
-                                  className={item.details && item.details.size.indexOf(link) !== -1 ? 'active' : null}
+                                  className={item.details && item.details.size.indexOf(link) !== -1 ? 'active' : ''}
                                   key={i}
                                 >
                                   <span>{link}</span>
@@ -79,12 +81,12 @@ const ProductDetailItem = ({ item, isLoading }: any) => {
                               )
                             } else {
                               return (
-                                <li className={item.details && link === item.details.size ? 'active' : null} key={i}>
+                                <li className={item.details && link === item.details.size ? 'active' : ''} key={i}>
                                   <span>{link}</span>
                                 </li>
                               )
                             }
-                          })} */}
+                          })}
                         </ul>
                       </Box>
                     )}
