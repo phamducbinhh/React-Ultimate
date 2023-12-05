@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from '@mui/material'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FeatureTitle from '~/Components/FeatureTitle'
 import ShopArea from '~/Components/ShopArea'
 import WidgetBranding from '~/Components/ShopWidget/WidgetBranding'
@@ -10,7 +10,7 @@ import WidgetSize from '~/Components/ShopWidget/WidgetSize'
 import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
 import { fetchListProduct } from '~/Redux/Product/Product.Slice'
 
-const Shop = () => {
+const Shop: React.FC = () => {
   const dispatch = useAppDispatch()
   const items = useAppSelector<any[]>((state) => state.product.listProduct)
   const [filteredItems, setFilteredItems] = useState<any[]>(items)

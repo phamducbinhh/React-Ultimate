@@ -4,8 +4,9 @@ import Grid from '@mui/material/Grid'
 import FeatureTitle from '~/Components/FeatureTitle'
 import './Register.css'
 import ButtonApp from '~/Components/ButtonApp'
+import React from 'react'
 
-const Register = () => {
+const Register: React.FC = () => {
   return (
     <>
       <FeatureTitle title='Login' page='Login' />

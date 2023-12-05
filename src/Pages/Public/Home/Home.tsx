@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Banner from '~/Components/Banner'
 import BrandNewItems from '~/Components/BrandNewItems'
 import HomeCarousel from '~/Components/HomeCarousel'
@@ -9,7 +9,7 @@ import UpComingProduct from '~/Components/UpComingProduct'
 import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
 import { fetchListProduct } from '~/Redux/Product/Product.Slice'
 
-const Home = () => {
+const Home: React.FC = () => {
   const dispatch = useAppDispatch()
   const products = useAppSelector<any[]>((state) => state.product.listProduct)
   const isLoading = useAppSelector<any>((state) => state.product.isLoading)
