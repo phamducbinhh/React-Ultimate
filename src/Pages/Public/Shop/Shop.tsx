@@ -15,6 +15,7 @@ const Shop = () => {
   const isLoading = useAppSelector<any>((state) => state.product.isLoading)
   const search = useAppSelector((state) => state.product.searchData)
   const price = useAppSelector<number[]>((state) => state.product.priceData)
+  const brandingArr = useAppSelector<string[]>((state) => state.product.brandingData)
 
   const settings = {
     gridView: 6
@@ -29,25 +30,29 @@ const Shop = () => {
     // Filter Function
     const filterProducts = () => {
       let result = [...items]
-
       // Search
       if (search.trim() !== '') {
         result = result.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
       }
-
       // Price
       result = result.filter((item) => {
         const getSale = item.sale ? item.salePrice : item.price
         return price[0] <= getSale && getSale <= price[1]
       })
-
+      // Filter By Branding Name
+      if (brandingArr.length > 0) {
+        result = result.filter((item) => {
+          if (typeof item.branding !== 'string') return null
+          return brandingArr.includes(item.branding.toLowerCase())
+        })
+      }
       // Update filteredItems
       setFilteredItems(result)
     }
 
     // Call Filter Function
     filterProducts()
-  }, [search, price, items])
+  }, [search, price, items, brandingArr])
 
   return (
     <>
