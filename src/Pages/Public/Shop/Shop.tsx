@@ -23,9 +23,8 @@ const Shop = () => {
   }, [])
 
   useEffect(() => {
-    // Lọc items dựa trên search
+    //Search Item
     if (search.trim() === '') {
-      // Nếu search rỗng, hiển thị tất cả sản phẩm
       setFilteredItems(items)
     } else {
       const updatedItems = items.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
