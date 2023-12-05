@@ -1,21 +1,21 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
-
 import './ShopWidget.css'
-import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
 import { priceItem } from '~/Redux/Product/Product.Slice'
+import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
 
-const WidgetPrice = () => {
+const WidgetPrice: React.FC = () => {
   const dispatch = useAppDispatch()
-  const valueRange = useAppSelector((state) => state.product.priceData)
-  const [value, setValue] = useState(valueRange)
+  const valueRange = useAppSelector<number[]>((state) => state.product.priceData)
+  const [value, setValue] = useState<number[]>(valueRange)
 
-  const handlePrice = (newValue: any) => {
-    setValue(newValue)
-    const action = priceItem(newValue)
+  const handlePrice = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number[])
+    const action = priceItem(newValue as number[])
     dispatch(action)
   }
+
   return (
     <div className='slider-widget widget'>
       <h3 className='shop-title'>Filter selection</h3>
