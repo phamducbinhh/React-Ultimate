@@ -3,6 +3,7 @@ const path = {
   HOME: '',
   SHOP: 'shop',
   PRODUCT: 'products',
+  BLOG: 'blogs',
   LOGIN: 'login',
   REGISTER: 'register'
 }

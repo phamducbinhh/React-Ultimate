@@ -5,7 +5,7 @@ interface PaginationProps {
   itemsPerPage: number
   total: number
   paginate: (pageNumber: number) => void
-  currentProducts: any[] // Thay any bằng kiểu dữ liệu thực tế của mảng currentProducts
+  currentProducts?: any[] // Thay any bằng kiểu dữ liệu thực tế của mảng currentProducts
 }
 
 const Pagination: React.FC<PaginationProps> = ({ itemsPerPage, total, paginate, currentProducts }) => {
