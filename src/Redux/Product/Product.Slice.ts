@@ -17,12 +17,14 @@ interface ProductState {
   listProduct: any[]
   isLoading: boolean
   sortData: string
+  searchData: string
 }
 
 const initialState: ProductState = {
   listProduct: [],
   isLoading: false,
-  sortData: 'all'
+  sortData: 'all',
+  searchData: ''
 }
 
 export const productSlice = createSlice({
@@ -31,6 +33,9 @@ export const productSlice = createSlice({
   reducers: {
     sortItem: (state, action) => {
       state.sortData = action.payload
+    },
+    searchItem(state, action) {
+      state.searchData = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -48,6 +53,6 @@ export const productSlice = createSlice({
   }
 })
 
-export const { sortItem } = productSlice.actions
+export const { sortItem, searchItem } = productSlice.actions
 
 export default productSlice.reducer

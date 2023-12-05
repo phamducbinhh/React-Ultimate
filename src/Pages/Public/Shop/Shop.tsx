@@ -1,14 +1,17 @@
 import { Box, Container, Grid } from '@mui/material'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import FeatureTitle from '~/Components/FeatureTitle'
 import ShopArea from '~/Components/ShopArea'
+import WidgetSearch from '~/Components/ShopWidget/WidgetSearch'
 import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
 import { fetchListProduct } from '~/Redux/Product/Product.Slice'
 
 const Shop = () => {
   const dispatch = useAppDispatch()
   const items = useAppSelector<any[]>((state) => state.product.listProduct)
+  const [filteredItems, setFilteredItems] = useState<any[]>(items)
   const isLoading = useAppSelector<any>((state) => state.product.isLoading)
+  const search = useAppSelector((state) => state.product.searchData)
 
   const settings = {
     gridView: 6
@@ -18,6 +21,18 @@ const Shop = () => {
     dispatch(fetchListProduct())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    // Lọc items dựa trên search
+    if (search.trim() === '') {
+      // Nếu search rỗng, hiển thị tất cả sản phẩm
+      setFilteredItems(items)
+    } else {
+      const updatedItems = items.filter((item) => item.title.toLowerCase().includes(search.toLowerCase()))
+      setFilteredItems(updatedItems)
+    }
+  }, [search, items])
+
   return (
     <>
       <FeatureTitle title='Our Shop' page='Shop' />
@@ -32,7 +47,22 @@ const Shop = () => {
               }}
             >
               <Grid item md={8} xs={12}>
-                <ShopArea data={items} settings={settings} isLoading={isLoading} />
+                <ShopArea data={filteredItems} settings={settings} isLoading={isLoading} />
+              </Grid>
+              <Grid
+                item
+                md={4}
+                xs={12}
+                sx={{
+                  marginTop: {
+                    xs: '50px',
+                    md: '0px'
+                  }
+                }}
+              >
+                <Box className='shop-widget'>
+                  <WidgetSearch />
+                </Box>
               </Grid>
             </Grid>
           </Box>
