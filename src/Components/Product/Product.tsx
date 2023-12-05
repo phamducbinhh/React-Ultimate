@@ -12,7 +12,7 @@ const Product = (props: any) => {
       {!isLoading && (
         <Box className='product-wrapper'>
           <Box className='product-img'>
-            <Link to={`/details/${id - 1}`}>
+            <Link to={`/products/${id - 1}`}>
               <img src={image} alt='image' />
               <img className='secondary-img' src={hoverImage} alt='imge 2'></img>
             </Link>
@@ -38,7 +38,7 @@ const Product = (props: any) => {
               <a href='#!'>{category} </a>
             </Box>
             <h4>
-              <Link to={`/details/${id - 1}`}>{title}</Link>
+              <Link to={`/products/${id - 1}`}>{title}</Link>
             </h4>
             <Box className='product-meta'>
               <Box className='pro-price'>
