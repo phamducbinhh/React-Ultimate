@@ -9,6 +9,7 @@ import { fetchListProduct, fetchListProductDetails } from '~/Redux/Product/Produ
 import details from './pro-details.jpg'
 import avatar from './user.png'
 import './ProductDetail.css'
+import '~/Components/ProductComments/ProductComments.css'
 
 const ProductDetail: React.FC = () => {
   const route = useParams()
