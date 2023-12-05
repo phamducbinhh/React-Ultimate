@@ -4,6 +4,7 @@ const path = {
   SHOP: 'shop',
   PRODUCT: 'products',
   BLOG: 'blogs',
+  CONTACT: 'contact',
   LOGIN: 'login',
   REGISTER: 'register'
 }
