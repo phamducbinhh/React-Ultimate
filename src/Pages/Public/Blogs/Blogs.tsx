@@ -53,7 +53,7 @@ const Blogs: React.FC = () => {
                     return (
                       <Box key={index} className='post-item'>
                         <Box className='box-thumb'>
-                          <Link to={`/blog/${blog.id - 1}`}>
+                          <Link to={`/blogs/${blog.id - 1}`}>
                             <img src={blog.postThumb} alt='thumb' />
                           </Link>
                         </Box>
@@ -76,13 +76,13 @@ const Blogs: React.FC = () => {
                             </span>
                           </Box>
                           <h3 className='post-title hover-title red-color'>
-                            <Link to={`/blog/${blog.id - 1}`}>{blog.title}</Link>
+                            <Link to={`/blogs/${blog.id - 1}`}>{blog.title}</Link>
                           </h3>
                           <p>{blog.body}</p>
                           <ButtonApp
                             value='Read More'
                             classColor='orange-btn'
-                            direction={`/blog/${blog.id - 1}`}
+                            direction={`/blogs/${blog.id - 1}`}
                           ></ButtonApp>
                         </Box>
                       </Box>

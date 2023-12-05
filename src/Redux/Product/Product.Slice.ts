@@ -14,7 +14,7 @@ export const fetchListProduct = createAsyncThunk('product/fetchListProduct', asy
 })
 
 export const fetchListProductDetails = createAsyncThunk(
-  'Blog/fetchListProductDetails',
+  'product/fetchListProductDetails',
   async (payload: any): Promise<any> => {
     try {
       const response = await ApiService.getOneProduct(payload.id)

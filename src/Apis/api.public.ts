@@ -9,6 +9,10 @@ class ApiService {
     const url = 'Posts.json'
     return ApiClientService.get(url)
   }
+  public getOneBlog(id: number): Promise<any> {
+    const url = `Posts/${id}.json`
+    return ApiClientService.get(url)
+  }
   public getOneProduct(id: number): Promise<any> {
     const url = `Products/${id}.json`
     return ApiClientService.get(url)

@@ -5,6 +5,7 @@ const path = {
   PRODUCT: 'products',
   PRODUCTBYID: 'products/:id',
   BLOG: 'blogs',
+  BLOGBYID: 'blogs/:id',
   CONTACT: 'contact',
   LOGIN: 'login',
   REGISTER: 'register'

@@ -13,13 +13,30 @@ export const fetchListBlog = createAsyncThunk('Blog/fetchListBlog', async (): Pr
   }
 })
 
+export const fetchListBlogDetails = createAsyncThunk(
+  'Blog/fetchListBlogDetails',
+  async (payload: any): Promise<any> => {
+    try {
+      const response = await ApiService.getOneBlog(payload.id)
+      if (response) {
+        return response
+      }
+    } catch (e: any) {
+      console.error(e.message)
+      throw e
+    }
+  }
+)
+
 interface BlogState {
   listBlog: any[]
+  listBlogDetails: any[]
   isLoading: boolean
 }
 
 const initialState: BlogState = {
   listBlog: [],
+  listBlogDetails: [],
   isLoading: false
 }
 
@@ -38,6 +55,9 @@ export const blogSlice = createSlice({
       })
       .addCase(fetchListBlog.rejected, (state) => {
         state.isLoading = false
+      })
+      .addCase(fetchListBlogDetails.fulfilled, (state, action) => {
+        state.listBlogDetails = action.payload
       })
   }
 })
