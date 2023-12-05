@@ -20,6 +20,7 @@ interface ProductState {
   searchData: string
   priceData: any[]
   brandingData: any[]
+  sizeData: any[]
 }
 
 const initialState: ProductState = {
@@ -28,7 +29,8 @@ const initialState: ProductState = {
   sortData: 'all',
   searchData: '',
   priceData: [0, 1000],
-  brandingData: []
+  brandingData: [],
+  sizeData: []
 }
 
 export const productSlice = createSlice({
@@ -46,6 +48,9 @@ export const productSlice = createSlice({
     },
     brandingItem: (state, action) => {
       state.brandingData = action.payload
+    },
+    sizeItem: (state, action) => {
+      state.sizeData = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -63,6 +68,6 @@ export const productSlice = createSlice({
   }
 })
 
-export const { sortItem, searchItem, priceItem, brandingItem } = productSlice.actions
+export const { sortItem, searchItem, priceItem, brandingItem, sizeItem } = productSlice.actions
 
 export default productSlice.reducer

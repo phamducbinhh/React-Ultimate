@@ -5,6 +5,7 @@ import ShopArea from '~/Components/ShopArea'
 import WidgetBranding from '~/Components/ShopWidget/WidgetBranding'
 import WidgetPrice from '~/Components/ShopWidget/WidgetPrice'
 import WidgetSearch from '~/Components/ShopWidget/WidgetSearch'
+import WidgetSize from '~/Components/ShopWidget/WidgetSize'
 import { useAppDispatch, useAppSelector } from '~/Redux/Hooks'
 import { fetchListProduct } from '~/Redux/Product/Product.Slice'
 
@@ -16,6 +17,7 @@ const Shop = () => {
   const search = useAppSelector((state) => state.product.searchData)
   const price = useAppSelector<number[]>((state) => state.product.priceData)
   const brandingArr = useAppSelector<string[]>((state) => state.product.brandingData)
+  const sizeArr = useAppSelector<string[]>((state) => state.product.sizeData)
 
   const settings = {
     gridView: 6
@@ -42,17 +44,19 @@ const Shop = () => {
       // Filter By Branding Name
       if (brandingArr.length > 0) {
         result = result.filter((item) => {
-          if (typeof item.branding !== 'string') return null
+          if (typeof item.branding !== 'string') return
           return brandingArr.includes(item.branding.toLowerCase())
         })
+      }
+      // Filter By size
+      if (sizeArr.length > 0) {
+        result = result.filter((item) => sizeArr.includes(item.details.size))
       }
       // Update filteredItems
       setFilteredItems(result)
     }
-
-    // Call Filter Function
     filterProducts()
-  }, [search, price, items, brandingArr])
+  }, [search, price, items, brandingArr, sizeArr])
 
   return (
     <>
@@ -85,6 +89,7 @@ const Shop = () => {
                   <WidgetSearch />
                   <WidgetBranding />
                   <WidgetPrice />
+                  <WidgetSize />
                 </Box>
               </Grid>
             </Grid>
