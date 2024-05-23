@@ -8,7 +8,8 @@ const path = {
   BLOGBYID: 'blogs/:id',
   CONTACT: 'contact',
   LOGIN: 'login',
-  REGISTER: 'register'
+  REGISTER: 'register',
+  CART: 'cart'
 }
 
 export default path
